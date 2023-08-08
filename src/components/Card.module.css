@@ -1,0 +1,9 @@
+.card {
+  width: 200px;
+  height: 400px;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+}
