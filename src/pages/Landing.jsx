@@ -1,9 +1,11 @@
 import React from 'react';
+import style from './style/Landing.module.css'
 
 function Landing(props) {
   return (
-    <div>
-      Landing page will be here
+    <div className={style.main}>
+      
+     land
     </div>
   );
 }

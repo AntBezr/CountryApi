@@ -1,10 +1,11 @@
 import React from 'react';
+import style from './Footer.module.css'
 
 function Footer(props) {
   return (
-    <div>
-      footer will be here
-    </div>
+    <footer className={style.footer}> 
+      © Anton Bezruchenkov React23K
+    </footer>
   );
 }
 

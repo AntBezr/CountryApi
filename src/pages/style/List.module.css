@@ -1,0 +1,19 @@
+.main {
+  min-height: 80vh;
+  background-color: var(--bgColor);
+}
+
+.template {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 1290px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
