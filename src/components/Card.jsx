@@ -5,7 +5,7 @@ function Card({flag,name,population, region, capital}) {
   return (
     <div className={style.card}>
       <div className={style.flagImg}>
-        {flag}
+         <img src={flag} alt={name} />
       </div>
       <div className={style.countryName}>
          <h2>{name}</h2>
