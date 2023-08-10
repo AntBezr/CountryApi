@@ -1,22 +1,26 @@
 import React from 'react';
 import style from './Card.module.css'
+import { Link } from 'react-router-dom';
 
-function Card({flag,name,population, region, capital}) {
+function Card({ flag, name, population, region, capital }) {
+
   return (
     <div className={style.card}>
-      <div className={style.flagImg}>
-         <img src={flag} alt={name} />
-      </div>
+      <Link to={name}>
+        <div className={style.flagImg}>
+          <img src={flag} alt={name} />
+        </div>
+      </Link>
       <div className={style.countryName}>
-         <h2>{name}</h2>
+        <h2>{name}</h2>
       </div>
       <div className={style.cardInfo}>
-        <p>Population: {population}</p> 
-        <p>Region: {region}</p>
-        <p>Capital: {capital}</p>
-        
+        <p><b>Population:</b> {Intl.NumberFormat("en-US").format(population)}</p>
+        <p><b>Region:</b>  {region}</p>
+        <p><b>Capital:</b> {capital?.join(', ')}</p>
+
       </div>
-    </div>
+    </div >
   );
 }
 

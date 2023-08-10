@@ -16,7 +16,7 @@ function App() {
         <Routes >
           <Route path='/' element={<Landing />} />
           <Route path='/list' element={<List />} />
-          <Route path='/list/:countryName' element={<CountryPage />} />
+          <Route path='list/:countryName' element={<CountryPage />} />
           <Route path='/about' element={<About />} />
         </Routes>
       </BrowserRouter>
