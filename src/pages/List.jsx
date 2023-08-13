@@ -55,6 +55,7 @@ function List() {
             return (
               <Card
                 key={id}
+                code={country.cioc}
                 name={country.name.common}
                 flag={country.flags.png}
                 population={country.population}

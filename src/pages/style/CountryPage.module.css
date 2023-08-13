@@ -2,3 +2,36 @@
   min-height: 80vh;
   background-color: var(--bgColor);
 }
+
+.aboutCountry {
+  width: 1290px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flag img {
+  max-width: 30vw;
+  object-fit: cover;
+}
+
+.countryInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.generalInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 30vw;
+}

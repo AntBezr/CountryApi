@@ -2,11 +2,11 @@ import React from 'react';
 import style from './Card.module.css'
 import { Link } from 'react-router-dom';
 
-function Card({ flag, name, population, region, capital }) {
+function Card({ flag, name, population, region, capital, code }) {
 
   return (
     <div className={style.card}>
-      <Link to={name}>
+      <Link to={code}>
         <div className={style.flagImg}>
           <img src={flag} alt={name} />
         </div>
