@@ -28,9 +28,30 @@
 select {
   width: 160px;
   margin: 16px;
-  font-size: 14px;
+  font-size: 18px;
   padding: 8px;
-  border-radius: 0;
-  border-color: var(--elementsColor);
-  box-shadow: 0px 3px 10px rgb(199, 199, 199);
+  border: 0px;
+}
+
+.searchWrapper {
+  background-color: var(--inputColor);
+  width: 350px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.lens {
+  background-color: var(--inputColor);
+  border: 0;
+}
+
+input {
+  font-size: 18px;
+  border: 0px;
+  height: 40px;
+  width: 300px;
 }

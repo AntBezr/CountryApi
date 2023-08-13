@@ -40,7 +40,12 @@ function List() {
     <div className={style.main}>
       <div className={style.template}>
         <div className={style.search}>
-          <input type="text" onChange={inputSearchHandler} />
+          <div className={style.searchWrapper}>
+            <button className={style.lens}><span class="material-symbols-outlined">
+              search
+            </span></button>
+            <input type="text" onChange={inputSearchHandler} placeholder='Search for a country...' />
+          </div>
           <select name="region" id="region" onChange={regionSearchHandler}>
             <option value="" defaultValue>All</option>
             <option value="Africa">Africa</option>

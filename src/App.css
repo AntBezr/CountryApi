@@ -1,17 +1,17 @@
-.lightTheme {
+:root {
   --textColor: hsl(200, 15%, 8%);
 
-  --inputColor: hsl(0, 0%, 52%);
+  --inputColor: hsl(0, 0%, 100%);
 
-  --bgColor: hsl(0, 0%, 98%);
+  --bgColor: hsl(0, 0%, 97%);
 
   --elementsColor: hsl(0, 0%, 100%);
 }
 
-.darkTheme {
+[data-theme="dark"] {
   --textColor: hsl(0, 0%, 100%);
 
-  --inputColor: hsl(0, 0%, 52%);
+  --inputColor: hsl(0, 0%, 100%);
 
   --bgColor: hsl(207, 26%, 17%);
 
