@@ -1,8 +1,7 @@
 import React from 'react';
 import style from './style/CountryPage.module.css'
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loader from '../components/Loader';
 
@@ -11,22 +10,35 @@ function CountryPage(props) {
   const navigation = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [countryData, setData] = useState([]);
-  const [currentCoutnry, setCountry] = useState(params.code)
+  const [shouldReload, setShouldReload] = useState(false);
+  const [currentCountry, setCurrentCountry] = useState(params.code)
 
 
   const linkHandler = (neighbour) => {
+    navigation(`/list/${neighbour}`)
+    setCurrentCountry(neighbour)
+    setShouldReload(true);
+  }
 
-    setCountry(neighbour)
-    navigation(`../list${currentCoutnry}`)
+  const backHandler = () => {
+    navigation(-1)
+    setCurrentCountry(params.code)
+    setShouldReload(true);
   }
 
 
 
   useEffect(() => {
     setIsLoading(true)
-    axios.get(`https://restcountries.com/v3.1/alpha/${currentCoutnry}`).then(res => setData(res.data[0]))
+    axios.get(`https://restcountries.com/v3.1/alpha/${currentCountry}`).then(res => setData(res.data[0]))
     setIsLoading(false)
-  }, [])
+
+    if (shouldReload) {
+      axios.get(`https://restcountries.com/v3.1/alpha/${currentCountry}`).then(res => setData(res.data[0]))
+      setShouldReload(false); // Reset the state
+    }
+
+  }, [shouldReload])
 
   let curKeys = countryData.currencies && Object.keys(countryData.currencies).map((curr) => (Object.keys(countryData.currencies[curr]).map((val) => ((' ' + countryData.currencies[curr][val])))))
 
@@ -39,7 +51,7 @@ function CountryPage(props) {
     <div className={style.main}>
       <div className={style.aboutCountry}>
         <div className={style.back}>
-          <button className={style.backBtn} type='button' onClick={() => navigation(-1)}><span className="material-symbols-outlined">
+          <button className={style.backBtn} type='button' onClick={backHandler}><span className="material-symbols-outlined">
             arrow_back
           </span><b>Back</b> </button>
         </div>
@@ -75,11 +87,11 @@ function CountryPage(props) {
             <div className={style.neighbors}>
               <p><b>Border Countries: </b> </p> {countryData.borders?.map((neighbour, i) => {
                 return (
-                  <Link to={``} key={i}>
-                    <button key={i} className={style.backBtn} type='button' onClick={() => {
-                      linkHandler(neighbour)
-                    }}>{neighbour}</button >
-                  </Link>
+
+                  <button key={i} className={style.backBtn} type='button' onClick={() => {
+                    linkHandler(neighbour)
+                  }}>{neighbour}</button >
+
                 )
               })}
             </div>

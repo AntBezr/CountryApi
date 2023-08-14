@@ -10,7 +10,7 @@ function Header(props) {
 
         <Link to='/' className={style.icon}></Link>
         <div className={style.menuItems}>
-          <DarkMode></DarkMode>
+          <DarkMode />
           <NavLink to='/' activeclassname={style.active}>Home</NavLink>
           <NavLink to='/list' activeclassname={style.active}>Country List</NavLink>
           <NavLink to='/about' activeclassname={style.active}>About this Project</NavLink>
